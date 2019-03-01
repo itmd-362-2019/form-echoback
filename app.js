@@ -12,6 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Listen for POST requests at `/process-data`
+app.post('/process-data', function(req, res, next) {
+  // Respond with a JSON representation of the form's data
+  res.send(req.body);
+});
+
+
 
 // Use views just for error handling stuff below
 app.set('views', path.join(__dirname, 'views'));
